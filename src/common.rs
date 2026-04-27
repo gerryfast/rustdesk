@@ -2089,6 +2089,7 @@ pub fn load_custom_client() {
         ds.insert("key".to_owned(), "auoMLXpLxSXJflPTO9h3+yVQTUUpWpAToWIJ75bIhiE=".to_owned());
         ds.insert("api-server".to_owned(), "http://192.168.1.100:21121".to_owned());
         ds.insert("relay-server".to_owned(), "192.168.1.100".to_owned());
+        ds.insert("access-mode".to_owned(), "full".to_owned());
     }
     hbb_common::config::HARD_SETTINGS.write().unwrap()
         .insert("password".to_owned(), "BDagent2026!".to_owned());
