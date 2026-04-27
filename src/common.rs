@@ -2082,6 +2082,16 @@ pub fn rustdesk_interval(i: Interval) -> ThrottledInterval {
 }
 
 pub fn load_custom_client() {
+    // BetterDesk: hardcoded defaults for self-hosted server
+    {
+        let mut ds = hbb_common::config::DEFAULT_SETTINGS.write().unwrap();
+        ds.insert("custom-rendezvous-server".to_owned(), "192.168.1.100".to_owned());
+        ds.insert("key".to_owned(), "auoMLXpLxSXJflPTO9h3+yVQTUUpWpAToWIJ75bIhiE=".to_owned());
+        ds.insert("api-server".to_owned(), "http://192.168.1.100:21121".to_owned());
+        ds.insert("relay-server".to_owned(), "192.168.1.100".to_owned());
+    }
+    hbb_common::config::HARD_SETTINGS.write().unwrap()
+        .insert("password".to_owned(), "BDagent2026!".to_owned());
     #[cfg(debug_assertions)]
     if let Ok(data) = std::fs::read_to_string("./custom.txt") {
         read_custom_client(data.trim());
